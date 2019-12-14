@@ -62,13 +62,13 @@ def action():
     user_gender = gender_var.get()
     user_type = usertype.get()
     if checkbtn_var.get() == 0:
-        subscribed = 'No'
+        feedback = 'No'
     else:
-        subscribed = 'Yes'
-    print(user_gender,user_type,subscribed)
+        feedback = 'Yes'
+    print(user_gender,user_type,feedback)
 
     with open('file.txt' , 'a') as f:
-        f.write(f'{username},{userage},{user_email},{user_gender},{subscribed}\n')
+        f.write(f'{username},{userage},{user_email},{user_gender},{feeedback}\n')
     
     name_entrybox.delete(0,tk.END)
     age_entrybox.delete(0,tk.END)
@@ -85,13 +85,13 @@ def action():
     user_type = usertype.get()
     user_gender = gender_var.get()
     if checkbtn_var.get() == 0:
-        subscribed = 'No'
+        feedback = 'No'
     else:
-        subscribed = 'Yes'
+        Feedback = 'Yes'
     
     # write to csv file
     with open('file.csv','a') as f:
-        dict_writer = DictWriter(f,fieldnames=['UserName','User Email Address','User Age','User Gender','User type','Subcribed'])
+        dict_writer = DictWriter(f,fieldnames=['UserName','User Email Address','User Age','User Gender','User type','Feedback'])
         if os.stat('file.csv').st_size==0:
         dict_writer.writeheader()
         
@@ -101,7 +101,7 @@ def action():
             'User Age' : userage,
             'user Gender' : user_gender,
             'User Type' : user_type,
-            'Subscribed' : subscribed
+            'Feedback' : feedback
         })
     name_entrybox.delete(0,tk.END)
     age_entrybox.delete(0,tk.END)
